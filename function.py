@@ -10,7 +10,7 @@ def scraping(url):
     r = requests.get(url)
     html = r.content
     soup = BeautifulSoup(html, 'html.parser')
-    return soup.find_all('dl', class_=re.compile('^shop_st'))
+    return soup.find_all('dl', class_=re.compile('^shop_'))
 
 
 def create_data(shop_list):
