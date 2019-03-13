@@ -15,7 +15,7 @@ def scraping(url):
 
 def create_data(shop_list):
     output_list = []
-    output_list.append(['Name', 'Member', 'Address', 'Opening', 'Closed', 'Note', 'Link']) # ヘッダ
+    output_list.append(['押印', '店名', 'メンバー', '住所', '営業時間', '定休日', '備考', 'リンク']) # ヘッダ
     # スタンプ設置箇所ごとに処理
     for shop in shop_list:
         name = shop.dt.text
@@ -30,7 +30,7 @@ def create_data(shop_list):
         link = ''
         if shop.find('a') is not None: # リンクがない場合の対策
             link = shop.find('a').get('href')
-        output_list.append([name, member, address, opening, closed, note, link])
+        output_list.append(['', name, member, address, opening, closed, note, link])
     return output_list
 
 
@@ -47,7 +47,7 @@ def connect_spreadsheet(filepath):
 
 
 def update_spreadsheet(worksheet, output_list):
-    cell_list = worksheet.range(1, 1, len(output_list), 7)
+    cell_list = worksheet.range(1, 1, len(output_list), len(output_list[0]))
     tmp_list = [value for row in output_list for value in row] # 2次元配列を1次元配列に詰め替え
     for cell, value in zip(cell_list, tmp_list):
         cell.value = value
