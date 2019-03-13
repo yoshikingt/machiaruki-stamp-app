@@ -5,7 +5,7 @@ SCRAPING_TARGET = 'https://www.llsunshine-numazu.jp/'
 CSV_FILE_PATH = 'shop_list.csv'
 config = configparser.ConfigParser()
 config.read('config.ini')
-SHEET_ID = config.get('DEFAULT' ,'sheet_id')
+SHEET_ID = config.get('DEFAULT', 'sheet_id')
 CREDENTIAL_FILE_PATH = 'credentials.json'
 
 # ソース取得
