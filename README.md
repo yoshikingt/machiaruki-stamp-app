@@ -1,4 +1,4 @@
-# machiaruki_stamp
+# machiaruki-stamp
 
 ## Requires Google Sheet API credentials
 
@@ -11,3 +11,10 @@
 
 1. Editing `config.ini`.
   - sheet_id : Your Google Spreadsheet id
+
+## How to Running on Docker container (optional)
+
+1. Build to image
+`docker image build -t sample:latest .`
+2. Run the Container
+`docker container run -it --rm -p 5000:5000 --name run-sample sample`
