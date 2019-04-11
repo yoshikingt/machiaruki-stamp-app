@@ -15,6 +15,6 @@
 ## How to Running on Docker container (optional)
 
 1. Build to image
-`docker image build -t sample:latest .`
+`docker image build -t machiaruki-stamp:latest .`
 2. Run the Container
-`docker container run -it --rm -p 5000:5000 --name run-sample sample`
+`docker container run -it -p 5000:5000 machiaruki-stamp`
