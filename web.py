@@ -1,12 +1,18 @@
-import flask
+from flask import Flask, jsonify
+from flask_cors import CORS
 import main
 
-app = flask.Flask(__name__)
+app = Flask(__name__)
+CORS(app)
 
 @app.route('/api/stamps', methods=['PUT'])
 def index():
     main.main()
-    return 'done'
+    return jsonify({"message": "done"})
+
+@app.route('/api', methods=['GET'])
+def test():
+    return jsonify({"message": "reached"})
 
 if __name__ == '__main__':
     # app.run(debug=True)
