@@ -5,14 +5,17 @@ import main
 app = Flask(__name__)
 CORS(app)
 
+
 @app.route('/api/stamps', methods=['PUT'])
 def index():
     main.main()
     return jsonify({"message": "done"})
 
+
 @app.route('/api', methods=['GET'])
 def test():
     return jsonify({"message": "reached"})
+
 
 if __name__ == '__main__':
     # app.run(debug=True)
