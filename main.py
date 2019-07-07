@@ -1,6 +1,7 @@
 import configparser
 import function
 
+
 def main():
     SCRAPING_TARGET = 'https://www.llsunshine-numazu.jp/'
     CSV_FILE_PATH = 'shop_list.csv'
@@ -20,6 +21,7 @@ def main():
     worksheet = gc.open_by_key(SHEET_ID).sheet1
     # Google Spreadsheet 更新
     function.update_spreadsheet(worksheet, output_list)
+
 
 if __name__ == '__main__':
     main()
