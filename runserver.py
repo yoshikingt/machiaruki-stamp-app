@@ -1,8 +1,15 @@
+from flask import Flask
+from flask import jsonify
+from flask_cors import CORS
 import configparser
 import function
 
+app = Flask(__name__)
+CORS(app)
 
-def main():
+
+@app.route('/api/stamps', methods=['POST'])
+def post_stamps():
     SCRAPING_TARGET = 'https://www.llsunshine-numazu.jp/'
     CSV_FILE_PATH = 'shop_list.csv'
     config = configparser.ConfigParser()
@@ -22,6 +29,16 @@ def main():
     # Google Spreadsheet 更新
     function.update_spreadsheet(worksheet, output_list)
 
+    return jsonify({"message": "done"})
+
+
+@app.route('/api', methods=['GET'])
+def check_reached():
+    return jsonify({"message": "reached"})
+
 
 if __name__ == '__main__':
-    main()
+    # 開発作業中以外はコメントアウト
+    # app.run(debug=True)
+    # 開発作業中のみコメントアウト
+    app.run(host='0.0.0.0', port=5000)
