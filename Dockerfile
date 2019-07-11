@@ -11,4 +11,5 @@ RUN pip install pipenv \
 
 COPY . ./
 
-CMD ["python", "./web.py"]
+# CMD ["python", "./web.py"]
+CMD ["python", "./runserver.py"]
