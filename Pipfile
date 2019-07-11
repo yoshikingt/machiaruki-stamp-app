@@ -41,7 +41,7 @@ flask-cors = "*"
 python_version = "3.7"
 
 [scripts]
-start = "python main.py runserver"
+start = "python runserver.py runserver"
 test = "python -m unittest discover -v"
 format = "autopep8 -ivr ."
 lint = "flake8 --show-source ."
