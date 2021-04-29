@@ -1,0 +1,22 @@
+version: 2
+updates:
+- package-ecosystem: pip
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: httplib2
+    versions:
+    - 0.18.0
+  - dependency-name: gspread
+    versions:
+    - 3.6.0
+  - dependency-name: jinja2
+    versions:
+    - 2.11.2
+- package-ecosystem: docker
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
